@@ -10,6 +10,9 @@ export default function Step2() {
   const [selectPro, setSelectPro] = useState(false);
   const [monthly, setMonthly] = useState(false);
   const [yearly, setYearly] = useState(false);
+
+  const [plan, setPlan] = useState("");
+  const [duration, setDuration] = useState("");
   return (
     <div>
       <FormContainer>
@@ -26,6 +29,9 @@ export default function Step2() {
             <div
               onClick={() => {
                 setSelectArcade(!selectArcade);
+                setSelectAdvanced(false);
+                setSelectPro(false);
+                setPlan("Arcade");
               }}
               className={`${
                 selectArcade
@@ -56,6 +62,9 @@ export default function Step2() {
             <div
               onClick={() => {
                 setSelectAdvanced(!selectAdvanced);
+                setSelectArcade(false);
+                setSelectPro(false);
+                setPlan("Advanced");
               }}
               className={`${
                 selectAdvanced
@@ -86,6 +95,9 @@ export default function Step2() {
             <div
               onClick={() => {
                 setSelectPro(!selectPro);
+                setSelectAdvanced(false);
+                setSelectArcade(false);
+                setPlan("Pro");
               }}
               className={`${
                 selectPro
@@ -122,14 +134,16 @@ export default function Step2() {
             >
               Monthly
             </p>
-            <div className="bg-blue-950 h-[20px] flex items-center  w-[50px] rounded-xl">
+            <div
+              onClick={() => {
+                setClick(!click);
+              }}
+              className="bg-blue-950 h-[20px] cursor-pointer flex items-center  w-[50px] rounded-xl"
+            >
               <span
-                onClick={() => {
-                  setClick(!click);
-                }}
                 className={`${
                   click ? "translate-x-7" : "translate-x-0"
-                } h-[15px] transition-all ml-1 cursor-pointer  w-[15px] block rounded-full bg-white`}
+                } h-[15px] transition-all ml-1  w-[15px] block rounded-full bg-white`}
               ></span>
             </div>
             <h2

@@ -19,8 +19,6 @@ const AppContext = createContext<ContextValue>({} as ContextValue);
 const AppProvider = ({ children }: AppProviderProps) => {
   const [addsOn, setAddsOn] = useState<obj[]>([]);
 
-  console.log(addsOn);
-
   useEffect(() => {
     const addsOn = localStorage.getItem("addon");
     if (addsOn) {
