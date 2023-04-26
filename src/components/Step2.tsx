@@ -12,7 +12,8 @@ export default function Step2() {
   const [yearly, setYearly] = useState(false);
 
   const [plan, setPlan] = useState("");
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState("Monthly");
+
   return (
     <div>
       <FormContainer>
@@ -137,6 +138,7 @@ export default function Step2() {
             <div
               onClick={() => {
                 setClick(!click);
+                click ? setDuration("Yearly") : setDuration("Monthly");
               }}
               className="bg-blue-950 h-[20px] cursor-pointer flex items-center  w-[50px] rounded-xl"
             >
