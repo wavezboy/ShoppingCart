@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormContainer from "./FormContainer";
 import avdanced from "../assets/images/icon-advanced.svg";
 import arcade from "../assets/images/icon-arcade.svg";
 import pro from "../assets/images/icon-pro.svg";
+import { useAppContext } from "../context/context";
 export default function Step2() {
   const [click, setClick] = useState(false);
   const [selectArcade, setSelectArcade] = useState(false);
   const [selectAdvanced, setSelectAdvanced] = useState(false);
   const [selectPro, setSelectPro] = useState(false);
-  const [monthly, setMonthly] = useState(false);
-  const [yearly, setYearly] = useState(false);
 
-  const [plan, setPlan] = useState("");
-  const [duration, setDuration] = useState("Monthly");
+  const {
+    choosePlan,
+    clearPlan,
+    plan,
+    setDuration,
+    duration,
+    chooseDuration,
+    clearDuration,
+  } = useAppContext();
+
+  useEffect(() => {
+    clearPlan();
+    clearDuration();
+  }, []);
 
   return (
     <div>
@@ -32,7 +43,12 @@ export default function Step2() {
                 setSelectArcade(!selectArcade);
                 setSelectAdvanced(false);
                 setSelectPro(false);
-                setPlan("Arcade");
+
+                if (duration == "Monthly") {
+                  choosePlan({ name: "Arcade", price: "$9/mo" });
+                } else {
+                  choosePlan({ name: "Arcade", price: "$90/yr" });
+                }
               }}
               className={`${
                 selectArcade
@@ -65,7 +81,12 @@ export default function Step2() {
                 setSelectAdvanced(!selectAdvanced);
                 setSelectArcade(false);
                 setSelectPro(false);
-                setPlan("Advanced");
+
+                if (duration == "Monthly") {
+                  choosePlan({ name: "Advanced", price: "$12/mo" });
+                } else {
+                  choosePlan({ name: "Advanced", price: "$120/yr" });
+                }
               }}
               className={`${
                 selectAdvanced
@@ -98,7 +119,12 @@ export default function Step2() {
                 setSelectPro(!selectPro);
                 setSelectAdvanced(false);
                 setSelectArcade(false);
-                setPlan("Pro");
+
+                if (duration == "Monthly") {
+                  choosePlan({ name: "Pro", price: "$15/mo" });
+                } else {
+                  choosePlan({ name: "Pro", price: "$150/yr" });
+                }
               }}
               className={`${
                 selectPro
@@ -138,7 +164,7 @@ export default function Step2() {
             <div
               onClick={() => {
                 setClick(!click);
-                click ? setDuration("Yearly") : setDuration("Monthly");
+                chooseDuration(duration === "Yearly" ? "Monthly" : "Yearly");
               }}
               className="bg-blue-950 h-[20px] cursor-pointer flex items-center  w-[50px] rounded-xl"
             >

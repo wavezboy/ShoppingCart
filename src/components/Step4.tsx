@@ -1,8 +1,24 @@
-import { useAppContext } from "../context/context";
+import { obj, useAppContext } from "../context/context";
 import FormContainer from "./FormContainer";
 
 export default function Step4() {
-  const { addsOn } = useAppContext();
+  const { addsOn, plan, duration } = useAppContext();
+  // +$12/mo
+  const regex = /\d/g;
+
+  const price = Number(plan?.price.match(regex)?.join(""));
+
+  const totaPrice = () => {
+    let total = price;
+
+    addsOn.forEach((adds) => {
+      const price = Number(adds.price.match(regex)?.join(""));
+
+      total += price;
+    });
+
+    return total;
+  };
 
   return (
     <div>
@@ -19,12 +35,14 @@ export default function Step4() {
           <div className=" w-[480px] mb-6 p-3 bg-gray-100">
             <div className="flex justify-between mb-6 ">
               <div>
-                <p className="font-bold text-blue-950">Arcade (Monthly)</p>
-                <a href="#" className="underline hover:text-blue-500">
+                <p className="font-bold text-blue-950">
+                  {plan?.name} ({duration})
+                </p>
+                <a href="/step2" className="underline hover:text-blue-500">
                   change
                 </a>
               </div>
-              <p className="font-bold text-blue-950">$9/mo</p>
+              <p className="font-bold text-blue-950">{plan?.price}</p>
             </div>
             <span className="h-[1px] mb-4 w-[400px] block  mx-auto bg-gray-300"></span>
             {addsOn.map((adds, i) => (
@@ -36,9 +54,9 @@ export default function Step4() {
           </div>
           <div className="flex gap-[230px] ml-4">
             <div>
-              <p>Total(per monthly)</p>
+              <p>Total(per {duration})</p>
             </div>
-            <p className="text-purple-700 text-[20px] font-bold">+$12/mo</p>
+            <p className="text-purple-700 text-[20px] font-bold">{`+$${totaPrice()}/mo`}</p>
           </div>
           <div className="flex items-center mt-20 gap-72">
             <a href="/step3">
