@@ -24,7 +24,7 @@ export default function Step4() {
   return (
     <div>
       <FormContainer>
-        <div className="p-">
+        <div className="p-7">
           <div>
             <p className="text-[36px] capitalize mb-2 font-bold text-blue-950">
               finishing up
@@ -53,9 +53,13 @@ export default function Step4() {
               </div>
             ))}
           </div>
-          <div className="flex gap-[230px] ml-4">
+          <div className="flex gap-[240px] ml-4">
             <div>
-              <p>Total(per {duration})</p>
+              <p>
+                {duration === "Yearly"
+                  ? "Total (per year)"
+                  : "Total (per month)"}
+              </p>
             </div>
             <p className="text-purple-700 text-[20px] font-bold">{`+$${totaPrice()}/mo`}</p>
           </div>

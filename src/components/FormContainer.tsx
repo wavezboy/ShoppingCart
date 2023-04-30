@@ -22,7 +22,7 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className=" flex items-center gap-3">
             <div
               className={`${
-                path === "/" ? "bg-blue-400 border-none" : null
+                path === "/" ? "bg-blue-400 border-none text-black" : null
               } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               1
@@ -35,7 +35,7 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex items-center gap-3">
             <div
               className={`${
-                path === "/step2" ? "bg-blue-400 border-none" : null
+                path === "/step2" ? "bg-blue-400 border-none text-black" : null
               } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               2
@@ -48,7 +48,7 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex items-center gap-3">
             <div
               className={`${
-                path === "/step3" ? "bg-blue-400 border-none" : null
+                path === "/step3" ? "bg-blue-400 border-none text-black" : null
               } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               3
@@ -61,7 +61,7 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex gap-3">
             <div
               className={`${
-                path === "/step4" ? "bg-blue-400 border-none" : null
+                path === "/step4" ? "bg-blue-400 border-none text-black" : null
               } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               4
