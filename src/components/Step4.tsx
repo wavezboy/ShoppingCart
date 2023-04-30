@@ -59,7 +59,7 @@ export default function Step4() {
             </div>
             <p className="text-purple-700 text-[20px] font-bold">{`+$${totaPrice()}/mo`}</p>
           </div>
-          <div className="flex items-center mt-20 gap-72">
+          <div className="flex items-center mt-16 gap-72">
             <Link to="/step3">
               <p
                 className="text-blue-950 cursor-pointer

@@ -9,7 +9,7 @@ export default function Step3() {
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
 
-  const { addsOn, chooseAddOn, clearAddOn } = useAppContext();
+  const { addsOn, chooseAddOn, clearAddOn, duration } = useAppContext();
   useEffect(() => {
     clearAddOn();
   }, []);
@@ -29,11 +29,15 @@ export default function Step3() {
           <div
             onClick={() => {
               setCheck1(!check1);
-              chooseAddOn({ name: "Online service", price: "+$1" });
+              duration === "Yearly"
+                ? chooseAddOn({ name: "Larger storage", price: "+$10" })
+                : chooseAddOn({ name: "Larger storage", price: "+$1" });
             }}
             className={`${
-              check1 ? "bg-slate-100" : null
-            } h-[80px] flex items-center cursor-pointer  justify-center w-[480px] border-[1.3px] border-purple-900 rounded-md`}
+              check1
+                ? "bg-slate-100 border-[1.3px] border-purple-900  "
+                : "border-[1.3px] border-gray-300"
+            } h-[80px] flex items-center cursor-pointer  justify-center w-[480px]  hover:border-[1.3px] hover:border-purple-900  rounded-md`}
           >
             <div className="flex items-center gap-[115px]">
               <div className="flex items-center gap-6">
@@ -55,18 +59,24 @@ export default function Step3() {
                 </div>
               </div>
               <div>
-                <p className="text-[#473ddd]">+$1/mo</p>
+                <p className="text-[#473ddd]">
+                  {duration === "Yearly" ? "+$10/yr" : "+$1/mo"}
+                </p>
               </div>
             </div>
           </div>
           <div
             onClick={() => {
               setCheck2(!check2);
-              chooseAddOn({ name: "Larger storage", price: "+$1" });
+              duration === "Yearly"
+                ? chooseAddOn({ name: "Larger storage", price: "+$20" })
+                : chooseAddOn({ name: "Larger storage", price: "+$2" });
             }}
             className={`${
-              check2 ? "bg-slate-100" : null
-            } h-[80px] mt-4 flex items-center cursor-pointer  justify-center w-[480px] border-[1.3px] border-purple-900 rounded-md`}
+              check2
+                ? "bg-slate-100 border-[1.3px] border-purple-900  "
+                : "border-[1.3px] border-gray-300"
+            } h-[80px] mt-4 flex items-center cursor-pointer  justify-center w-[480px] hover:border-[1.3px] hover:border-purple-900 rounded-md`}
           >
             <div className="flex items-center gap-40">
               <div className="flex items-center gap-6">
@@ -88,18 +98,24 @@ export default function Step3() {
                 </div>
               </div>
               <div>
-                <p className="text-[#473ddd]">+$2/mo</p>
+                <p className="text-[#473ddd]">
+                  {duration === "Yearly" ? "+$20/yr" : "+$2/mo"}
+                </p>
               </div>
             </div>
           </div>
           <div
             onClick={() => {
               setCheck3(!check3);
-              chooseAddOn({ name: "Customizable", price: "+$2" });
+              duration === "Yearly"
+                ? chooseAddOn({ name: "Larger storage", price: "+$20" })
+                : chooseAddOn({ name: "Larger storage", price: "+$2" });
             }}
             className={`${
-              check3 ? "bg-slate-100" : null
-            } h-[80px] mt-4 flex items-center cursor-pointer  justify-center w-[480px] border-[1.3px] border-purple-900 rounded-md`}
+              check3
+                ? "bg-slate-100 border-[1.3px] border-purple-900  "
+                : "border-[1.3px] border-gray-300"
+            } h-[80px] mt-4 flex items-center cursor-pointer  justify-center w-[480px] hover:border-[1.3px] hover:border-purple-900 rounded-md`}
           >
             <div className="flex items-center gap-28">
               <div className="flex items-center gap-6">
@@ -123,13 +139,15 @@ export default function Step3() {
                 </div>
               </div>
               <div>
-                <p className="text-[#473ddd]">+$2/mo</p>
+                <p className="text-[#473ddd]">
+                  {duration === "Yearly" ? "+$20/yr" : "+$2/mo"}
+                </p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center mt-[45px] gap-72">
-            <Link to="step2">
+            <Link to="/step2">
               <p
                 className="text-gray-400 hover:text-blue-800 cursor-pointer
                 "

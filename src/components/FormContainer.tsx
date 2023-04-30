@@ -22,8 +22,8 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className=" flex items-center gap-3">
             <div
               className={`${
-                path === "/" ? "bg-green-600 border-none" : null
-              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[2px] text-white text-[20px] border-white `}
+                path === "/" ? "bg-blue-400 border-none" : null
+              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               1
             </div>
@@ -35,8 +35,8 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex items-center gap-3">
             <div
               className={`${
-                path === "/step2" ? "bg-green-600 border-none" : null
-              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[2px] text-white text-[20px] border-white `}
+                path === "/step2" ? "bg-blue-400 border-none" : null
+              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               2
             </div>
@@ -48,8 +48,8 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex items-center gap-3">
             <div
               className={`${
-                path === "/step3" ? "bg-green-600 border-none" : null
-              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[2px] text-white text-[20px] border-white `}
+                path === "/step3" ? "bg-blue-400 border-none" : null
+              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               3
             </div>
@@ -61,8 +61,8 @@ export default function FormContainer({ children }: FormContainerProps) {
           <div className="flex gap-3">
             <div
               className={`${
-                path === "/step4" ? "bg-green-600 border-none" : null
-              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[2px] text-white text-[20px] border-white `}
+                path === "/step4" ? "bg-blue-400 border-none" : null
+              } h-[35px] w-[35px] flex items-center gap-1 justify-center rounded-full border-[1px] text-white text-[20px] border-white `}
             >
               4
             </div>
