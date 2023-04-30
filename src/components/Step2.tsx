@@ -4,6 +4,7 @@ import avdanced from "../assets/images/icon-advanced.svg";
 import arcade from "../assets/images/icon-arcade.svg";
 import pro from "../assets/images/icon-pro.svg";
 import { useAppContext } from "../context/context";
+import { Link } from "react-router-dom";
 export default function Step2() {
   const [click, setClick] = useState(false);
   const [selectArcade, setSelectArcade] = useState(false);
@@ -183,23 +184,23 @@ export default function Step2() {
             </h2>
           </div>
           <div className="flex items-center mt-28 gap-72">
-            <a href="step1">
+            <Link to="/">
               <p
                 className="text-gray- hover:text-blue-800 cursor-pointer
             "
               >
                 Go Back
               </p>
-            </a>
+            </Link>
             <div>
-              <a href="/step3">
+              <Link to="/step3">
                 <button
                   type="submit"
                   className="h-[44px] text-[18px] cursor-pointer text-white font-bold flex items-center hover:bg-blue-500  justify-center w-[130px] bg-blue-950 rounded-[8px]"
                 >
                   Next Step
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

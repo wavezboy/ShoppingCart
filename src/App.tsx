@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import { BrowserRouter } from "react-router-dom";
-import { Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router";
 import Sidebar from "./components/Step1";
 import FormContainer from "./components/FormContainer";
 import Step1 from "./components/Step1";

@@ -83,7 +83,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
   };
 
   const clearDuration = () => {
-    setDuration("");
+    setDuration("Monthly");
     localStorage.removeItem("durations");
   };
 

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import FormContainer from "./FormContainer";
 import { useForm } from "react-hook-form";
 import TextInputField from "./form/textinput";
+import { Link, useNavigate } from "react-router-dom";
+
+interface FormCredentials {
+  name: string;
+  emailAddress: string;
+  phoneNumber: string;
+}
 
 export default function Step1() {
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
@@ -23,7 +31,12 @@ export default function Step1() {
                 please provide your name, email address, and phone number.
               </h2>
             </div>
-            <form action="">
+            <form
+              onSubmit={handleSubmit((data) => {
+                localStorage.setItem("userData", JSON.stringify(data));
+                navigate("/step2");
+              })}
+            >
               <div>
                 <TextInputField
                   name="Name"
@@ -51,15 +64,13 @@ export default function Step1() {
                 />
               </div>
               <div className="flex justify-center mx-2 mt-1 sm:mt-10">
-                <a href="/step2">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="h-[44px] text-[18px] hover:bg-blue-500 text-white font-bold flex items-center mt-10 justify-center w-[130px] ml-36 bg-blue-800 rounded-[8px]"
-                  >
-                    Next Step
-                  </button>
-                </a>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="h-[44px] text-[18px] hover:bg-blue-500 text-white font-bold flex items-center mt-10 justify-center w-[130px] ml-36 bg-blue-800 rounded-[8px]"
+                >
+                  Next Step
+                </button>
               </div>
             </form>
           </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FormContainer from "./FormContainer";
 import { FaCheck } from "react-icons/fa";
 import { useAppContext } from "../context/context";
+import { Link } from "react-router-dom";
 
 export default function Step3() {
   const [check1, setCheck1] = useState(false);
@@ -128,23 +129,23 @@ export default function Step3() {
           </div>
 
           <div className="flex items-center mt-[45px] gap-72">
-            <a href="step2">
+            <Link to="step2">
               <p
                 className="text-gray-400 hover:text-blue-800 cursor-pointer
                 "
               >
                 Go Back
               </p>
-            </a>
+            </Link>
             <div>
-              <a href="/step4">
+              <Link to="/step4">
                 <button
                   type="submit"
                   className="h-[44px] text-[18px] hover:bg-blue-500 cursor-pointer text-white font-bold flex items-center  justify-center w-[130px] bg-blue-950 rounded-[8px]"
                 >
                   Next Step
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
